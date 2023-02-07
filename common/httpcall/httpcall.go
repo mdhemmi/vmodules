@@ -6,6 +6,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	
+	"github.com/mdhemmi/vmodules/common/getfuncname"
+	debugger "github.com/mdhemmi/vmodules/common/debug"
 )
 
 func HTTPcall(target string, token string, call string, method string, content string, insecure bool, debug bool) string {
@@ -22,12 +25,12 @@ func HTTPcall(target string, token string, call string, method string, content s
 	}
 	if debug {
 		funcname := GetCurrentFuncName()
-		Debug("", "", "start")
-		Debug(funcname, "string", "print")
+		debugger.Debug("", "", "start")
+		debugger.Debug(funcname, "string", "print")
 		fmt.Println(authtoken)
 		fmt.Println(err)
 		fmt.Println(req)
-		Debug("", "", "end")
+		debugger.Debug("", "", "end")
 
 	}
 
