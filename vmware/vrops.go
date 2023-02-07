@@ -1,5 +1,14 @@
 package vmodules
 
+import (
+	"bytes"
+	"crypto/tls"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"time"
+)
+
 func Get_vrops_token(vrops string, vropsusername string, vropspassword string, authSource string, debug bool, insecure bool) string {
 	var token string
 	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: insecure}
@@ -98,4 +107,3 @@ func Send_vROPs(vrops string, vropsusername string, vropspassword string, authSo
 		Post_vrops_metric(vrops, vropsobjectid, vrops_token, endpoint, item, timestamp, state, insecure)
 	}
 }
-

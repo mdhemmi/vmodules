@@ -1,6 +1,14 @@
 package vmodules
 
-func HTTPcall(target string, authtoken string, call string, method string, content string, insecure bool) string {
+import (
+	"bytes"
+	"crypto/tls"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func HTTPcall(target string, token string, call string, method string, content string, insecure bool, debug bool) string {
 	authtoken := "Bearer " + token
 	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: insecure}
 	url := "https://" + target + call
@@ -12,7 +20,7 @@ func HTTPcall(target string, authtoken string, call string, method string, conte
 		var jsonStr = []byte(content)
 		req, err = http.NewRequest(method, url, bytes.NewBuffer(jsonStr))
 	}
-	if shd.Debug {
+	if debug {
 		funcname := GetCurrentFuncName()
 		Debug("", "", "start")
 		Debug(funcname, "string", "print")

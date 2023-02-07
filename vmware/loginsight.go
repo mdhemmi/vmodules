@@ -1,6 +1,17 @@
 package vmodules
 
-func Login(username string, password string, provider string, vrli string) {
+import (
+	"crypto/tls"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"strings"
+
+	"github.com/davecgh/go-spew/spew"
+)
+
+func Login(username string, password string, provider string, vrli string) string {
 
 	// curl -k -X POST https://loginsight.example.com:9543/api/v1/sessions \
 	//     -d '{"username":"admin","password":"Secret!","provider":"Local"}'
@@ -30,11 +41,13 @@ func Login(username string, password string, provider string, vrli string) {
 	var result map[string]interface{}
 	json.Unmarshal([]byte(content), &result)
 	//spew.Dump(result)
-	sessionId = fmt.Sprint(result["sessionId"])
+	sessionId := fmt.Sprint(result["sessionId"])
+
+	return sessionId
 
 }
 
-func Query(sessionId string) {
+func Query(vrli string, sessionId string) {
 	// GET /api/v1/aggregated-events/{+path}
 
 	// TODO: This is insecure; use only in dev environments.

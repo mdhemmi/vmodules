@@ -1,5 +1,14 @@
 package vmodules
 
+import (
+	"archive/tar"
+	"compress/gzip"
+	"fmt"
+	"io"
+	"os"
+	"strings"
+)
+
 func Untar(sourcefile string, target string) {
 
 	file, err := os.Open(sourcefile)

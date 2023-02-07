@@ -1,5 +1,17 @@
 package vmodules
 
+import (
+	"bytes"
+	"encoding/json"
+	"errors"
+	"net/http"
+	"time"
+)
+
+type SlackRequestBody struct {
+	Text string `json:"text"`
+}
+
 func SendSlackNotification(webhookUrl string, msg string) error {
 
 	slackBody, _ := json.Marshal(SlackRequestBody{Text: msg})
