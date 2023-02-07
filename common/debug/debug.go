@@ -1,4 +1,4 @@
-package vmodules
+package debug
 
 import (
 	"encoding/json"

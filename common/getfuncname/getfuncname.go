@@ -1,4 +1,4 @@
-package vmodules
+package getfuncname
 
 import "runtime"
 

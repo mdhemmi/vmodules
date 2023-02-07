@@ -1,4 +1,4 @@
-package vmodules
+package check_availability
 
 import (
 	"net"

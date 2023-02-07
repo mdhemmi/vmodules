@@ -1,4 +1,4 @@
-package vmodules
+package addslashes
 
 import "bytes"
 
