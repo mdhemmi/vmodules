@@ -1,4 +1,4 @@
-module vmodules
+module github.com/mdhemmi/vmodules
 
 go 1.19
 

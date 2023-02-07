@@ -6,8 +6,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-
-	"github.com/mdhemmi/vmodules/common"
 )
 
 func HTTPcall(target string, token string, call string, method string, content string, insecure bool, debug bool) string {
@@ -23,13 +21,13 @@ func HTTPcall(target string, token string, call string, method string, content s
 		req, err = http.NewRequest(method, url, bytes.NewBuffer(jsonStr))
 	}
 	if debug {
-		funcname := common.GetCurrentFuncName()
-		common.Debug("", "", "start")
-		common.Debug(funcname, "string", "print")
+		funcname := GetCurrentFuncName()
+		Debug("", "", "start")
+		Debug(funcname, "string", "print")
 		fmt.Println(authtoken)
 		fmt.Println(err)
 		fmt.Println(req)
-		common.Debug("", "", "end")
+		Debug("", "", "end")
 
 	}
 
