@@ -2,10 +2,7 @@ module vmodules
 
 go 1.19
 
-require (
-	github.com/TylerBrock/colorjson v0.0.0-20200706003622-8a50f05110d2
-	github.com/davecgh/go-spew v1.1.1
-)
+require github.com/TylerBrock/colorjson v0.0.0-20200706003622-8a50f05110d2
 
 require (
 	github.com/fatih/color v1.14.1 // indirect
