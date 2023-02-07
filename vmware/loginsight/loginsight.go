@@ -1,4 +1,4 @@
-package vmodules
+package loginsight
 
 import (
 	"crypto/tls"
