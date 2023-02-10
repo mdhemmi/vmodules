@@ -1,4 +1,4 @@
-package debug
+package vdebug
 
 import (
 	"encoding/json"
