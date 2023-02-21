@@ -45,7 +45,6 @@ func Get_vrops_token(vrops string, vropsusername string, vropspassword string, a
 
 func Get_vrops_resource(vropshost string, token string, vropsname string, insecure bool) string {
 	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: insecure}
-	// https://192.168.0.29/suite-api/api/resources?adapterKind=VMWARE&name=skyline&page=0&pageSize=1000&resourceKind=VirtualMachine&_no_links=true
 	url := "https://" + vropshost + "/suite-api/api/resources?name=" + vropsname + "&resourceKind=VirtualMachine&adapterKind=VMWARE"
 	//fmt.Println(url)
 	req, err := http.NewRequest("GET", url, nil)
